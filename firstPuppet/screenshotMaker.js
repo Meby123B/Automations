@@ -6,8 +6,9 @@ const screenshotMaker = {
     
     async takeScreenshot(page, options = {}) {
         await page.screenshot({ path: `${this.count}.png`, ...options });
-        console.log(`cheese ${this.count}`);
+        // console.log(`cheese ${this.count}`);
         this.count++;
+        return new Promise((resolve) => setTimeout(resolve, 1000));
     }
 }
 
