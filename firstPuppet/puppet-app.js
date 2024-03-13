@@ -15,7 +15,7 @@ const s = require('./screenshotMaker');
 
 
     const browser = await puppeteer.launch({
-        headless: false
+        // headless: false
     });
     const page = await browser.newPage();
     // console.log('launch');
