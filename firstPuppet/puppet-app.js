@@ -15,7 +15,7 @@ const s = require('./screenshotMaker');
 
 
     const browser = await puppeteer.launch({
-        // headless: false
+        headless: false
     });
     const page = await browser.newPage();
     // console.log('launch');
@@ -26,7 +26,6 @@ const s = require('./screenshotMaker');
         // open youtube
         await page.goto('https://www.youtube.com/');
         // console.log('in youtube');
-
 
         // take a screenshot
         await s.takeScreenshot(page);
@@ -46,13 +45,13 @@ const s = require('./screenshotMaker');
         await s.takeScreenshot(page);
 
         // wait for the search results
-        // await page.waitForSelector('#filter-button');
+        await page.waitForSelector('#filter-button');
         // console.log(page.url());
 
         // wait for 5 seconds to let the page loading the search results
-        console.log('wait for 5 seconds');
-        await new Promise(r => setTimeout(r, 5000));
-        console.log('after search');
+        // console.log('wait for 5 seconds');
+        // await new Promise(r => setTimeout(r, 5000));
+        // console.log('after search');
 
         await s.takeScreenshot(page, { fullPage: true });
 
