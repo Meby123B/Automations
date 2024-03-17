@@ -1,8 +1,8 @@
-export default {
+const locators = {
     domain:'https://www.saucedemo.com/',
     login:{
-        username:'[name="user-name"]',
-        password:'[name="password"]',
+        usernameInput:'[name="user-name"]',
+        passwordInput:'[name="password"]',
         loginBtn:'[name="login-button"]',
     },
     home:{
@@ -25,3 +25,5 @@ export default {
         continueBtn:'#continue',
     }
 }
+
+module.exports = locators

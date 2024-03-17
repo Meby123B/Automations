@@ -1,0 +1,43 @@
+const { domain, login } = require('../locators')
+
+
+class loginPage {
+    constructor(page) {
+        this.page = page;
+
+        const { usernameInput, passwordInput, loginBtn } = login;
+        this.usernameInput = page.locator(usernameInput);
+        this.passwordInput = page.locator(passwordInput);
+        this.loginBtn = page.locator(loginBtn);
+    }
+
+    async goto() {
+        await this.page.goto(domain);
+    }
+
+
+    async fillUsername(username = 'standard_user') {
+        await this.usernameInput.fill(username);
+    }
+
+    async fillPassword(password = 'secret_sauce') {
+        await this.passwordInput.fill(password);
+    }
+
+    async clickLoginBtn() {
+        await this.loginBtn.click();
+    }
+
+    
+    async login(
+        username = 'standard_user',
+        password = 'secret_sauce'
+    ) {
+        await this.fillUsername(username);
+        await this.fillPassword(password);
+        await this.clickLoginBtn();
+    }
+
+}
+
+module.exports = loginPage;

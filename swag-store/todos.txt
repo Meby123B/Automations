@@ -1,0 +1,15 @@
+v login
+v 1 username
+v 2 password
+v 3 click
+
+home
+1 add product
+2 sort
+
+cart
+1remove product
+
+check out
+1 type info/
+2 continue
