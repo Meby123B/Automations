@@ -5,7 +5,7 @@ const locators = {
         passwordInput:'[name="password"]',
         loginBtn:'[name="login-button"]',
     },
-    home:{
+    inventory:{
         itemCard:'.inventory_item',
         itemBtn:'.btn_inventory',
     },

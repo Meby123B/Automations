@@ -3,7 +3,7 @@ v 1 username
 v 2 password
 v 3 click
 
-home
+inventory
 1 add product
 2 sort
 
