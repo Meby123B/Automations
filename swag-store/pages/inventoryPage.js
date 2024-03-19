@@ -19,7 +19,6 @@ class InventoryPage {
         const login = new LoginPage(this.page);
         await login.goto();
         await login.login();
-        console.log('login success');
     }
 
     async addItem(index = 0) {

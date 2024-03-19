@@ -7,7 +7,7 @@ class CheckoutPage {
         this.page = page;
 
         const {
-            cancelBtn, continueBtn,
+            cancelBtn, continueBtn, errorMsg,
             firstNameInput, lastNameInput, zipInput
         } = checkout;
 
@@ -16,6 +16,7 @@ class CheckoutPage {
         this.firstNameInput = page.locator(firstNameInput);
         this.lastNameInput = page.locator(lastNameInput);
         this.zipInput = page.locator(zipInput);
+        this.errorMsg = page.locator(errorMsg);
 
     }
 
@@ -37,6 +38,12 @@ class CheckoutPage {
         await this.zipInput.fill(zipCode);
     }
 
+    async fillAll(firstName, lastName, zipCode) {
+        await this.fillFirstName(firstName);
+        await this.fillLastName(lastName);
+        await this.fillZipCode(zipCode);
+    }
+
     async continue() {
         await this.continueBtn.click();
     }
@@ -45,12 +52,6 @@ class CheckoutPage {
         await this.cancelBtn.click();
     }
 
-    async fillInfoAndContinue() {
-        await this.fillFirstName();
-        await this.fillLastName();
-        await this.fillZipCode();
-        await this.continue();
-    }
 }
 
 export default CheckoutPage;

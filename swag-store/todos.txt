@@ -26,5 +26,10 @@ INVENTORY
 ☑️add to cart (number in cart)
 ☑️validate sort (by price)
 
+CART
+☑️remove item
+☑️go to checkout
 
-
+CHECKOUT
+error message
+continue

@@ -28,10 +28,12 @@ export const checkout = {
     firstNameInput:'[name="firstName"]',
     lastNameInput:'[name="lastName"]',
     zipInput:'[name="postalCode"]',
+    errorMsg:'[data-test="error"]',
 
     cancelBtn:'#cancel',
     continueBtn:'#continue',
 }
+
 
 export default {
     domain,
