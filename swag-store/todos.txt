@@ -1,15 +1,30 @@
-v login
-v 1 username
-v 2 password
-v 3 click
+login
+☑️1 username
+☑️2 password
+☑️3 click
 
 inventory
-1 add product
-2 sort
+☑️1 add product
+☑️2 sort
 
 cart
-1remove product
+☑️1remove product
 
 check out
-1 type info/
-2 continue
+☑️1 type info/
+☑️2 continue
+
+
+
+========TESTS=========
+
+LOGIN
+☑️incorrect password
+☑️login is working
+
+INVENTORY
+☑️add to cart (number in cart)
+☑️validate sort (by price)
+
+
+

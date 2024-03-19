@@ -1,14 +1,15 @@
-const { domain, login } = require('../locators')
+import { domain, login } from '../locators.js';
 
+class LoginPage {
 
-class loginPage {
     constructor(page) {
         this.page = page;
 
-        const { usernameInput, passwordInput, loginBtn } = login;
+        const { usernameInput, passwordInput, loginBtn, errorMsg } = login;
         this.usernameInput = page.locator(usernameInput);
         this.passwordInput = page.locator(passwordInput);
         this.loginBtn = page.locator(loginBtn);
+        this.errorMsg = page.locator(errorMsg);
     }
 
     async goto() {
@@ -28,11 +29,13 @@ class loginPage {
         await this.loginBtn.click();
     }
 
-    
-    async login(
-        username = 'standard_user',
-        password = 'secret_sauce'
-    ) {
+
+    async login(options = {
+        username: 'standard_user',
+        password: 'secret_sauce'
+    }) {
+        const { username, password } = options;
+
         await this.fillUsername(username);
         await this.fillPassword(password);
         await this.clickLoginBtn();
@@ -40,4 +43,4 @@ class loginPage {
 
 }
 
-module.exports = loginPage;
+export default LoginPage;

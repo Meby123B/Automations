@@ -1,39 +1,44 @@
-const { inventory } = require('../locators.js')
-const loginPage = require('./loginPage.js')
+import { inventory } from '../locators.js';
+import LoginPage from './loginPage.js';
 
-class inventoryPage {
+
+class InventoryPage {
     constructor(page) {
         this.page = page;
 
-        const { itemBtn, itemCard } = inventory;
-        this.itemCards = page.locator(itemCard);
+        const { itemBtn, sortBtn, cartBtn, cartBadge,prices } = inventory;
         this.itemBtn = page.locator(itemBtn);
+        this.sortBtn = page.locator(sortBtn);
+        this.cartBtn = page.locator(cartBtn);
+        this.cartBadge = page.locator(cartBadge);
+        this.prices = page.locator(prices);
 
     }
 
     async goto() {
-        const login = new loginPage(this.page);
+        const login = new LoginPage(this.page);
         await login.goto();
         await login.login();
         console.log('login success');
     }
 
     async addItem(index = 0) {
-        const itemCard = await this.itemCards.nth(index);
-        const itemBtn = await itemCard.locator(this.itemBtn);
+        const itemBtn = await this.itemBtn.nth(index);
 
         // already added
         if (await itemBtn.innerText() === 'Remove') { return; }
 
-        await itemCard.locator(this.itemBtn).click();
+        await itemBtn.click();
     }
 
     async sort(optionNum = 0) {
-
+        await this.sortBtn.selectOption({index:optionNum});
     }
 
-
+    async gotoCart() {
+        await this.cartBtn.click();
+    }
 
 }
 
-module.exports = inventoryPage;
+export default InventoryPage;
