@@ -31,5 +31,5 @@ CART
 ☑️go to checkout
 
 CHECKOUT
-error message
-continue
+☑️error message
+☑️continue
