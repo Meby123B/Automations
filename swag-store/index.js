@@ -10,12 +10,13 @@ import CheckoutPage from './pages/checkoutPage.js';
     const browser = await chromium.launch({headless:false});
     const page = await browser.newPage();
 
-    // const login = new loginPage(page);
-    // await login.goto();
+    const login = new loginPage(page);
+    await login.goto();
     // await login.login();
+    // const inventory = login.gotoInventory();
     
-    // const inventory = new InventoryPage(page);
-    // await inventory.goto();
+    const inventory = new InventoryPage(page);
+    await inventory.goto();
     // await inventory.addItem(1);
     // await inventory.addItem(1);
     // await inventory.addItem(2);
